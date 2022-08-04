@@ -1,0 +1,202 @@
+<%- include('../partials/header') %>
+
+  <body style="background-color: #e1fdbd">
+    <div class="jumbotron d-flex align-items-center min-vh-100 gradient-background">
+      <div class="container logIn" style="background-color: white">
+        <div class="text-center text-padding"><h3>Sign In To RecipEat</h3></div>
+        <form action="/login" method="post">
+          <div class="form-group">
+            <input
+              id="user_name"
+              type="text"
+              class="form-control"
+              name="user_name"
+              placeholder="User Name"
+              required="required"
+            />
+          </div>
+          <!-- Button to click to show the modal-->
+          <div class="form-group">
+            <input
+                id="pass"
+                type="password"
+                class="form-control"
+                name="pass"
+                placeholder="Password"
+                required="required"
+              />
+          </div>
+          <a
+          href="#forgotModal"
+          data-toggle="modal"
+          onclick="forgotPass()"
+          >Forgot password?</a> 
+          <div class="row" style="padding-top: 15px;">
+            <!--add href for log in if needed-->
+            <div class="col">
+              <div class="text-right">
+                <button 
+                  class="btn btn-info"
+                  action="/login"
+                  method="post"
+                  >Login</button
+                >
+              </div>
+            </div>
+            <div class="col">
+              <div class="text-left">
+                <a
+                  href="#regModal"
+                  class="btn btn-info"
+                  data-toggle="modal"
+                  onclick="openModal()"
+                  >Register</a
+                >
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Forgot Password Modal-->
+    <div id="forgotModal" class="modal fade">
+      <div class="modal-dialog modal-login">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="avatar">
+              <img
+                src="https://www.tutorialrepublic.com/examples/images/avatar.png"
+                alt="Avatar"
+              />
+            </div>
+            <h4 class="modal-title">Enter Email</h4>
+            <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input
+                id="forgotMail"
+                type="email"
+                class="form-control"
+                name="forgotMail"
+                placeholder="Email"
+                required="required"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+                id="forgot_submit"
+                class="btn btn-primary btn-block login-btn"
+                disabled
+              >
+                Submit
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Up Modal HTML -->
+    <div id="regModal" class="modal fade">
+      <div class="modal-dialog modal-login">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="avatar">
+              <img
+                src="https://www.tutorialrepublic.com/examples/images/avatar.png"
+                alt="Avatar"
+              />
+            </div>
+            <h4 class="modal-title">Sign Up</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="form" action="/register" method="post">
+              <div class="form-group">
+                <input
+                  id="usrName"
+                  type="text"
+                  class="form-control"
+                  name="usrName"
+                  placeholder="User Name"
+                  required="required"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="usrEmail"
+                  type="email"
+                  class="form-control"
+                  name="usrEmail"
+                  placeholder="Email"
+                  required="required"
+                />
+              </div>
+              <div class="message" id="mailMsg" style="display: none">
+                <p id="mail" class="invalid">Invalid <b>Email</b></p>
+              </div>
+              <div class="form-group">
+                <input
+                  id="psw"
+                  type="password"
+                  class="form-control"
+                  name="psw"
+                  placeholder="Password"
+                  required="required"
+                />
+              </div>
+              <div class="message" id="passMsg" style="display: none">
+                <h2>Password must contain the following:</h2>
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">
+                  A <b>capital (uppercase)</b> letter
+                </p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="symbol" class="invalid">A <b>symbol</b> "!@#$%^&*()".</p>
+                <p id="length" class="invalid">Minimum <b>12 characters</b></p>
+              </div>
+              <div class="form-group">
+                <input
+                  id="cpsw"
+                  type="password"
+                  class="form-control"
+                  name="confirm password"
+                  placeholder="Confirm Password"
+                  required="required"
+                />
+              </div>
+              <div class="message" id="confMsg" style="display: none">
+                <p id="match" class="invalid">
+                  Password and Confirm Password Match
+                </p>
+              </div>
+              <button
+                id="my_submit_button"
+                class="btn btn-primary btn-block login-btn"
+                disabled
+              >
+                Sign Up
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+  <%- include('../partials/footer') %>

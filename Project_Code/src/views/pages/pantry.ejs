@@ -1,0 +1,258 @@
+<%- include('../partials/header') %>
+  <%- include('../partials/navbar') %>
+  <!--TODO add layout-->
+  <div class="container-fluid">
+      <%- include('../partials/sidebar1') %>
+        <li class="nav-item">
+          <a  
+            href="#modalAdd"
+            class="btn btn-info" 
+            data-toggle="modal" 
+            onclick="addModal()"
+            >click to add items</a
+          >
+          <a  
+            href="#modalRemove"
+            class="btn btn-info" 
+            data-toggle="modal" 
+            onclick="deleteModal()"
+            >click to remove items</a
+          >
+        </li>
+      <%- include('../partials/sidebar2') %>
+        <main id="main" class="col-12">
+          <div id="content">
+          <button 
+            class="btn btn-info text-center" 
+            id="collapse" 
+            onclick="openNav()"><i 
+            class="fa-solid fa-angles-right" 
+            id="collapseIcon"></i>
+          </button>
+          <h2 class = "text-center">Pantry</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered table-lg" id = "myTable">
+              <tr>
+                  <th class= "align-bottom" style="text-align:center"> Meat</th>
+                  <th class = "align-bottom" style="text-align:center">Carbs </th>
+                  <th class = "align-bottom" style="text-align:center">vegs</th>
+                  <th class = "align-bottom" style="text-align:center" >Dairy</th>
+                  <th class = "align-bottom" style="text-align:center">Fruit</th>
+                </tr>
+                <%
+                if(food) {  
+                  lengths = []
+                  if(food.meats) lengths.push(food.meats.length)
+                  else lengths.push(0)
+                  if(food.carbs) lengths.push(food.carbs.length)
+                  else lengths.push(0)
+                  if(food.vegs) lengths.push(food.vegs.length)
+                  else lengths.push(0)
+                  if(food.dairy) lengths.push(food.dairy.length)
+                  else lengths.push(0)
+                  if(food.fruit) lengths.push(food.fruit.length)
+                  else lengths.push(0)
+                  var maxLength = Math.max(...lengths)
+                  var idx = 0;
+                  while (maxLength > idx) { %>
+                  <tr>
+                    <% if (lengths[0] > idx) { %>
+                      <td class = "align-bottom" style="text-align:center">
+                        <%- food.meats[idx] %>
+                      </td>
+                    <% } else { %>
+                      <td class = "align-bottom" style="text-align:center"> </td>
+                    <%} %>
+                    <% if (lengths[1] > idx) { %>
+                      <td class = "align-bottom" style="text-align:center">
+                        <%- food.carbs[idx] %>
+                      </td>
+                    <% } else { %>
+                      <td class = "align-bottom" style="text-align:center"> </td>
+                    <%} %>
+                    <% if (lengths[2] > idx) { %>
+                      <td class = "align-bottom" style="text-align:center">
+                        <%- food.vegs[idx] %>
+                      </td>
+                    <% } else { %>
+                      <td class = "align-bottom" style="text-align:center"> </td>
+                    <%} %>
+                    <% if (lengths[3] > idx) { %>
+                      <td class = "align-bottom" style="text-align:center"> <%- food.dairy[idx] %> </td>
+                    <% } else { %>
+                      <td class = "align-bottom" style="text-align:center"> </td>
+                    <%} %>
+                    <% if (lengths[4] > idx) { %>
+                      <td class = "align-bottom" style="text-align:center">
+                        <%- food.fruit[idx] %>
+                      </td>
+                    <% } else { %>
+                      <td class = "align-bottom" style="text-align:center"> </td>
+                    <%} %>
+                  </tr>
+                <% idx += 1 }}%>
+                <tr>
+                </tr>             
+            </table>
+          </div>
+          </div>
+        </main>
+    </div>
+          <!-- modals-->
+          <div id ="modalAdd" class = "modal fade">
+            <div class="modal-dialog modal-patry">
+              <div class="modal-content ">
+                <div class="modal-header">
+                  <h4 class="modal-title text-center ">What would you like to add to the pantry?</h4>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form class="form" action="/add" method="post">
+                    <div class="form-group">
+                      <input
+                        id="addItemM"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="Meat"
+                        
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="addItemC"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="Carbohydrates"
+                        
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="addItemV"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="vegs"
+                        
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="addItemD"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="Dairy"
+                        
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="addItemF"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="Fruit"
+                        
+                      />
+                    </div>
+                    <button
+                      id="add_submit_button"
+                      class="btn btn-primary btn-block"
+                      disabled
+                      >submit
+                    </button>
+                  </form>
+                </div>
+                <div class="modal-fooder"></div>
+              </div>
+            </div>
+          </div>
+          <div id ="modalRemove" class = "modal fade">
+            <div class="modal-dialog modal-patry">
+              <div class="modal-content ">
+                <div class="modal-header">
+                  <h4 class="modal-title text-center ">What would you like to remove from the pantry?</h4>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form class="form" action="/remove" method="post">
+                    <div class="form-group">
+                      <input
+                        id="rItemM"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="Meat"
+                        
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="rItemC"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="Carbohydrates"
+                        
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="rItemV"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="vegs"
+                        
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="rItemD"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="Dairy"
+                        
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="rItemF"
+                        type="text"
+                        class="form-control"
+                        name="pantry add"
+                        placeholder="Fruit"
+                        
+                      />
+                    </div>
+                    <button
+                      id="remove_submit_button"
+                      class="btn btn-primary btn-block"
+                      disabled
+                      >submit
+                    </button>
+                  </form>
+                </div>
+                <div class="modal-fooder"></div>
+              </div>
+            </div>
+          </div>
+<%- include('../partials/footer') %>

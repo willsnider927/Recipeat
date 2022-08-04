@@ -1,0 +1,11 @@
+<script> 
+    recipesMap.set("<%- item.id %>", <%-JSON.stringify(item)%>);
+    var action = "<%- action %>"; 
+</script>
+<div class="card col-3 recipe-card" id="<%- item.id %>" onclick="openRecipeModal(recipesMap.get(this.id), action)" data-toggle="modal" data-target="#recipe_modal">
+    <img class="card-img-top" src="<%- item.image %>" alt="<%-item.title %> image">
+    <div class="card-body">
+    <div class="card-title"> <%- item.title %> </div>
+    <p class="card-text"> Prep Time: <%- item.readyInMinutes %> Minutes</p>
+    </div>
+</div>

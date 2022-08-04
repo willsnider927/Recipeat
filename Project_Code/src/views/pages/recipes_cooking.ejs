@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+  <%- include('../partials/navbar') %>
+    <center><h1 class="mb-3">Favorite Recipes</h1></center>
+    <div class="container" id="favorites">
+      <% if(favorites) { %>
+        <div class="row">
+          <% favorites.forEach(item => { %> 
+            <%- include('../partials/recipe_card',{item : item, action : "remove"}) %>
+          <%})%>
+        </div>
+      <%} else { %>
+        <center><h5>No favorited Recipes, discover some more in the search tab.</h5></center>
+      <%}%>
+    </div>
+    <%- include('../partials/recipe_modal') %>
+     
+<%- include('../partials/footer') %>

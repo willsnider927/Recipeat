@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <!--include global js-->
+    <script src="../../Resources/scripts/global.js"></script>
+    <!--<link rel="icon" href="../Resources/img/favicon.ico" type="image/x-icon" />
+    Bootstrap core CSS -->
+    <% if(typeof local_css == 'string' && local_css){ %>
+      <link href='../../Resources/styles/<%=local_css%>' rel="stylesheet"/>
+    <% } %>
+    <link href="../../Resources/styles/global.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <title><%=my_title %></title>
+  </head>

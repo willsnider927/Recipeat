@@ -1,0 +1,107 @@
+/* login css written by Will */
+body {
+  font-family: "Varela Round", sans-serif!important;
+}
+.btn.btn-info:focus,
+.btn.btn-info:hover {
+    background-color: #3C891A!important;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+.btn.btn-info {
+  background-color: #64A90C!important;
+  color: white;
+  margin-block: 0.5em;
+}
+
+/* website color and sidebar styling written by Jason*/ 
+#main{
+  transition: margin-left .5s;
+}
+
+#content{
+  transition: margin-right .5s;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  width:0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  z-index: 100;
+  overflow-x: hidden;
+  box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);
+  transition: 0.5s;
+  /*min-width: 50px;
+  */
+  
+}
+
+.sticky_sidebar{
+  position: sticky;
+  top: 48px;
+  /*viewport height - 48 pixels*/
+  height: calc(100vh - 48px);
+  /*rem is element font-size*/
+  padding-top: 2rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* previous colors = rgb(198, 238, 207) and #188030*/
+.gradient-background{
+  background: linear-gradient(to top, #64A90C, #e1fdbd);
+}
+
+.bg_light_green{
+  background-color: #e1fdbd;
+}
+
+.bg_dark_green{
+  background-color: #64A90C;
+}
+
+.bg_darkest_green{
+  background-color: #2b4706;
+}
+
+.nav a:hover{
+  color: rgb(255, 255, 255);
+}
+
+.nav-item a {
+  color: rgb(206, 255, 174);
+  font-size: 1.1em;
+  text-decoration: none;
+  
+}
+
+.sticky_sidebar li {
+  border-bottom: 1px solid rgb(206, 255, 174);
+  margin-top: -1px;
+  text-decoration: none;
+  padding: 8px;
+}
+
+#collapse{
+  margin-left: 10px;
+}
+
+.recipe-card{
+  cursor: pointer;
+  position: absolute;
+  padding: 20px;
+  margin: auto;
+}

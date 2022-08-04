@@ -1,0 +1,46 @@
+.gradient-background{
+    background: linear-gradient(to bottom, #64A90C, #e1fdbd);
+  }
+  .modal-pantry {
+    color: #636363;
+    width: 300px;
+  }
+  .modal-pantry .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  
+  }
+  .modal-pantry .modal-header {
+  border-bottom: none;
+  position: absolute;
+  justify-content: center;
+  }
+  
+  .modal-pantry h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -15px;
+  }
+  .modal-pantry .form-control:focus {
+  border-color: #70c5c0;
+  }
+  .modal-pantry .form-control,
+  .modal-pantry .btn {
+  min-height: 40px;
+  border-radius: 3px;
+  }
+  .modal-pantry .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    }
+  .modal-pantry .modal-footer {
+    background: #ecf0f1;
+    border-color: #dee4e7;
+    text-align: center;
+    justify-content: center;
+    margin: 0 -20px -20px;
+    border-radius: 5px;
+    font-size: 13px;
+  }

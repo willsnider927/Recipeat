@@ -1,0 +1,54 @@
+<%- include('../partials/header') %>
+  <%- include('../partials/navbar') %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> 
+  <div class="container-fluid" id="content">
+  
+
+        <!--<button class="btn btn-info text-center" id="collapse" onclick="openNav()"><i class="fa-solid fa-angles-right" id="collapseIcon"></i></button>-->
+          <script>
+            var log = <%- logged %>;
+          </script>
+            <div class="search-wrapper">
+              <form class= "search-bar-form" action="/search_complete" method="post" id="keyWordForm">
+                <div class="search-bar-div">
+                  <input type="search" name="search" placeholder="Search Recipes" id="search_bar">
+                  <i class="fa fa-search"></i>
+                </div>
+                <div class="form-group search-filter-form">
+                  <select class="custom-select" name="diet_filter" id="diet_filter">
+                    <option selected>Select Diet Type</option>
+                    <option value="Gluten Free">Gluten Free</option>
+                    <option value="Ketogenic">Ketogenic</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Lacto vegetarian">Lacto-Vegetarian</option>
+                    <option value="Ovo vegetarian">Ovo-Vegetarian</option>
+                    <option value="Pescetarian">Pescetarian</option>
+                    <option value="Paleo">Paleo</option>
+                    <option value="Primal">Primal</option>
+                    <option value="Low FODMAP">Low FODMAP</option>
+                    <option value="Whole30">Whole30</option>
+                  </select>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="include_ingrediants" name="include_ingrediants" value="true">
+                    <label class="form-check-label" for="include_ingrediants" id="checkbox_label">Search by Pantry</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <br><br><br><br><br><br>
+        <!--<div class="row">-->
+          <% if(recipes) { %>
+            <center>
+            <div class="row recipe-cards">
+              <% recipes.results.forEach(item => { %> 
+                <%- include('../partials/recipe_card',{item : item, action: "add"}) %>
+              <%})%>
+            </div>
+          </center>
+          <%} else { %>
+            <center><h5>No recipes that match search query, discover some more in the search tab.</h5></center>
+          <%}%>
+      </div>
+      <%- include('../partials/recipe_modal') %>
+
+<%- include('../partials/footer') %>

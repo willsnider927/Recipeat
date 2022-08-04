@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+  <%- include('../partials/navbar') %>
+    <!--TODO add layout-->
+    <div class="container-fluid">
+      <%- include('../partials/sidebar1') %>
+      <li class="nav-item">
+        <a class="nav-link" href="./home.ejs">About RecipEat</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="./recipes_cooking.html">Popular Recipes</a>
+      </li>
+      <%- include('../partials/sidebar2') %>
+        <div class="row">
+            <main id="main" class="col-12">
+              <div id="content">
+                <button class="btn btn-info text-center" id="collapse" onclick="openNav()"><i class="fa-solid fa-angles-right" id="collapseIcon"></i></button>
+                <section class="text-center">
+                  <div class="container">
+                    <h1 class="heading">Welcome to RecipEat</h1>
+                    <p class="lead text-muted">Recipe: Add ingredients to your pantry and search for recipes that contain items in your pantry.</p>
+                    <p class="lead text-muted">Eat: Add a recipe to your list, cook a dish, and enjoy.</p>
+                    <p class="lead text-muted">Repeat: You can repeat the process to make something new, or come back to your favorites.</p>
+                    <p>
+                      <a class="btn btn-info" href="search_recipe">Start Cooking</a>
+                    </p>
+                    <p>
+                      <button class="btn btn-info" id="random_button">Random Recipes</button>
+                    </p>
+                  </div>
+                </section>
+                <div class="row random-recipe" id="random_populate">
+                </div>
+              </div>
+            </main>
+        </div>
+    </div>
+    <%- include('../partials/recipe_modal') %>
+  <%- include('../partials/footer') %>

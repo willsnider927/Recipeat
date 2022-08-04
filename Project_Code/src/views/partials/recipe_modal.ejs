@@ -1,0 +1,33 @@
+<!-- modal to show recipe information  -->
+<div class="modal fade recipe-modal" id="recipe_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="recipe_title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <img id="recipe_image" class="img-fluid" src="">
+            </div>
+            <div class="col-md-6">
+              <h5 id="recipe_prepTime">Prep Time: </h5>
+              <h5 id="recipe_servings">Servings: </h5>
+              <h5>Ingredients</h5>
+              <ul id="recipe_ingredients"></ul>
+              <h5>Instructions</h5>
+              <ul id="recipe_instructions"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="recipe_action"></button>
+      </div>
+    </div>
+  </div>
+</div>
